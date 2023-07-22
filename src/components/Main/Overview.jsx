@@ -1,33 +1,29 @@
 import React from "react";
 import { useGlobalContext } from "../../context/globalContext";
-import { PieChart, Pie, Sector, Cell } from "recharts";
 import { Chart } from "react-google-charts";
 
-export const options = {
-  title: "Balance overview",
+export const optionsIncome = {
+  title: "Income overview",
+  backgroundColor: "#D7FDEC",
+};
+export const optionsExpense = {
+  title: "Expense overview",
+  backgroundColor: "#D7FDEC",
 };
 
-const COLORS = [
-  "#0088FE",
-  "#00C49F",
-  "#FFBB28",
-  "#FF8042",
-  "#0088FE",
-  "#00C49F",
-  "#FFBB28",
-  "#FF8042",
-];
-
 const Overview = () => {
-  const { totalBalance, totalIncome, totalExpense, income, expense } =
-    useGlobalContext();
-  let header = ["Category", "Amount"];
-  let data = income.map(({ category, amount }) => [category, amount]);
-  data.unshift(header);
+  const { totalBalance, totalIncome, totalExpense, income, expense } = useGlobalContext();
+  let headerIncome = ["Category", "Amount"];
+  let dataIncome = income.map(({ description, amount }) => [description, amount]);
+  dataIncome.unshift(headerIncome);
+  let headerExpense = ["Category", "Amount"];
+  let dataExpense = expense.map(({ category, amount }) => [category, amount]);
+  dataExpense.unshift(headerExpense);
+  console.log(headerIncome);
 
   return (
-    <>
-      <div className="flex justify-around shadow">
+    <div className="flex-col">
+      <div className="flex justify-around pt-2 pb-2 m-2 bg-[#B0C6CE] border border-gray-500 rounded-lg shadow-2xl">
         <div className="">
           <div className=""></div>
           <div className="">Summary</div>
@@ -49,35 +45,23 @@ const Overview = () => {
           <div className="">TENGE</div>
         </div>
       </div>
-      <div>
+      <div className="flex grow min-w-0 p-6 m-2 bg-[#B0C6CE] border border-gray-500 rounded-lg shadow-2xl">
         <Chart
           chartType="PieChart"
-          data={data}
-          options={options}
+          data={dataIncome}
+          options={optionsIncome}
           width={"100%"}
-          height={"400px"}
+          height={"700px"}
         />
-        {/* <PieChart width={800} height={400}>
-          <Pie
-            data={data}
-            cx={120}
-            cy={200}
-            innerRadius={60}
-            outerRadius={80}
-            fill="#8884d8"
-            paddingAngle={5}
-            dataKey="amount"
-          >
-            {data.map((entry, index) => (
-              <Cell
-                key={`cell-${index}`}
-                fill={COLORS[index % COLORS.length]}
-              />
-            ))}
-          </Pie>
-        </PieChart> */}
+        <Chart
+          chartType="PieChart"
+          data={dataExpense}
+          options={optionsExpense}
+          width={"100%"}
+          height={"700px"}
+        />
       </div>
-    </>
+    </div>
   );
 };
 

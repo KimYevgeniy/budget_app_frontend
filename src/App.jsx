@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import Subscriptions from "./components/subscriptions";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
@@ -7,10 +6,8 @@ import Main from "./components/Main";
 
 
 function App() {
-  // const [count, setCount] = useState(0);
-
   return (
-    <div className="flex-col font-chakra">
+    <div className="flex-col font-chakra bg-[#D7FDEC]">
       <Header />
       <Main />
       <Footer />

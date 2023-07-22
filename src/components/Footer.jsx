@@ -4,7 +4,7 @@ import logoGitHub from "../assets/github-mark.png"
 const Footer = () => {
   return (
     <>
-      <footer className="pr-8 pl-8 ml-12 mr-12 border-t-2 border-gray-400">
+      <footer className="pr-8 pl-8 ml-12 mr-12 pb-4 border-t-2 border-gray-400">
         <div className="flex justify-between items-center mt-4">
           <div className="text-base">© 2023 By Yevgeniy Kim</div>
           <a href="https://github.com/KimYevgeniy" title="GitHub: @KimYevgeniy">

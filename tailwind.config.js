@@ -7,6 +7,6 @@ export default {
         "chakra": ["Chakra Petch",  "sans-serif"]
       },
     },
-    plugins: [require("daisyui")],
+    plugins: [],
   },
 };

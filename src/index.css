@@ -11,3 +11,15 @@
       margin: 0;
     }
   }
+  input {
+    @apply bg-[#D7FDEC] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+  }
+  input::placeholder {
+    @apply text-gray-400
+  }
+  select {
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+  }
+  .btn {
+    @apply bg-sky-500 hover:bg-sky-700 rounded w-24 h-8
+  }
